@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- =======================================================
+         DUNIYA KA BEST SEO & GOOGLE RANKING FEATURE
+         Project: CSS Animation Maker (Kinder Hub)
+    ============================================================ -->
+    <title>Advanced CSS Animation Maker & Keyframe Generator | Kinder Hub</title>
+    <meta name="title" content="Advanced CSS Animation Maker & Keyframe Generator | Kinder Hub">
+    <meta name="description" content="Create stunning 3D, neon, liquid, and glitch CSS animations visually without coding. Generate and copy complex keyframes instantly. Free tool by 13kinder_.">
+    <meta name="keywords" content="CSS animation maker, keyframe generator, CSS 3D flip, CSS glitch effect, neon CSS animation, free web design tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinderhub.netlify.app/animation.html">
+    <meta property="og:title" content="Advanced CSS Animation Maker | Kinder Hub">
+    <meta property="og:description" content="Generate Pro-level CSS keyframe animations in seconds. Visual builder for web developers.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="CSS Animation Generator | Kinder Hub">
+    <meta property="twitter:description" content="Create ultra-modern CSS animations and get code instantly.">
+
+    <!-- Google Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Advanced CSS Animation Generator",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "13kinder_",
+        "url": "https://instagram.com/13kinder_"
+      },
+      "description": "A visual tool for developers to generate advanced CSS keyframe animations like glitches, liquid morphs, and 3D flips."
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Naya Kinder Hub Branding */
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+
+        .container { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 20px; max-width: 1000px; width: 100%; justify-content: center; }
+        
+        .controls { background: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; color: #cbd5e1; }
+        select { width: 100%; padding: 12px; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; outline: none; font-size: 1rem; cursor: pointer; }
+        input[type="range"] { width: 100%; cursor: pointer; accent-color: #38bdf8; }
+
+        .preview-section { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .preview-area { width: 100%; height: 300px; background: #1e293b; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; overflow: hidden; perspective: 1000px; }
+        .animated-box { width: 120px; height: 120px; background: #38bdf8; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0f172a; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3); transition: background 0.3s; }
+
+        .code-output { width: 100%; background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+        .code-output pre { font-family: monospace; color: #a5b4fc; font-size: 0.95rem; white-space: pre-wrap; }
+        .copy-btn { margin-top: 15px; width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .copy-btn:hover { background: #0ea5e9; }
+
+        /* --- KEYFRAMES --- */
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-40px); } }
+        @keyframes wobble { 0%, 100% { transform: translateX(0%); } 15% { transform: translateX(-25%) rotate(-5deg); } 30% { transform: translateX(20%) rotate(3deg); } 45% { transform: translateX(-15%) rotate(-3deg); } 60% { transform: translateX(10%) rotate(2deg); } 75% { transform: translateX(-5%) rotate(-1deg); } }
+        @keyframes flip { 0% { transform: perspective(400px) rotateY(0); } 50% { transform: perspective(400px) translateZ(150px) rotateY(180deg); } 100% { transform: perspective(400px) rotateY(360deg); } }
+        @keyframes cyberGlitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 5px) skewX(-20deg); background: #ff003c; color: white; }
+            40% { transform: translate(5px, -5px) skewX(20deg); background: #00f0ff; color: black; }
+            60% { transform: translate(-5px, 5px) skewX(-20deg); }
+            80% { transform: translate(5px, -5px) skewX(20deg); background: #ffe600; }
+            100% { transform: translate(0); }
+        }
+        @keyframes liquidMorph {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: scale(1); background: #38bdf8; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; transform: scale(1.2) rotate(45deg); background: #6366f1; color: white; }
+        }
+        @keyframes neonPulse {
+            0%, 100% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff; transform: scale(1); background: #0f172a; color: #0ff; border: 2px solid #0ff; }
+            50% { box-shadow: 0 0 20px #f0f, 0 0 40px #f0f, 0 0 80px #f0f; transform: scale(1.05); background: #0f172a; color: #f0f; border: 2px solid #f0f; }
+        }
+        @keyframes tornado {
+            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            50% { transform: rotateX(180deg) rotateY(360deg) rotateZ(180deg) scale(0.4); background: #f43f5e; color: white; }
+            100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
+        }
+        @keyframes hingeDrop {
+            0% { transform-origin: top left; animation-timing-function: ease-in-out; }
+            20%, 60% { transform: rotate3d(0, 0, 1, 80deg); transform-origin: top left; animation-timing-function: ease-in-out; }
+            40%, 80% { transform: rotate3d(0, 0, 1, 60deg); transform-origin: top left; animation-timing-function: ease-in-out; opacity: 1; }
+            100% { transform: translate3d(0, 700px, 0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KINDER<span>HUB</span></h1>
+        <p>Advanced CSS Animation Generator</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <div class="input-group">
+                <label>Animation Type <span style="color: #f43f5e; font-size: 0.8rem;">(New 🔥)</span></label>
+                <select id="anim-type">
+                    <optgroup label="Ultra Modern (World's Best)">
+                        <option value="cyberGlitch">Cyber Glitch</option>
+                        <option value="liquidMorph">Liquid Morph</option>
+                        <option value="neonPulse">Neon Pulse (Cyberpunk)</option>
+                        <option value="tornado">Tornado 3D</option>
+                        <option value="hingeDrop">Gravity Hinge Drop</option>
+                    </optgroup>
+                    <optgroup label="Classic Pro">
+                        <option value="pulse">Pulse</option>
+                        <option value="bounce">Bounce</option>
+                        <option value="wobble">Wobble</option>
+                        <option value="flip">3D Flip</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label>Duration <span id="dur-val">2s</span></label>
+                <input type="range" id="duration" min="0.5" max="5" step="0.1" value="2">
+            </div>
+
+            <div class="input-group">
+                <label>Timing Function</label>
+                <select id="timing">
+                    <option value="ease-in-out">Ease-In-Out</option>
+                    <option value="linear">Linear</option>
+                    <option value="ease-in">Ease-In</option>
+                    <option value="ease-out">Ease-Out</option>
+                </select>
+            </div>
+            
+            <button class="copy-btn" onclick="playAnimation()" style="background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8;">Replay Animation ↺</button>
+        </div>
+
+        <div class="preview-section">
+            <div class="preview-area">
+                <div class="animated-box" id="box">Kinder</div>
+            </div>
+            
+            <div class="code-output">
+                <pre id="css-code"></pre>
+                <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy Code</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="text-align: center; color: #64748b; margin: 40px 0;">Crafted for advanced developers by <a href="https://instagram.com/13kinder_" target="_blank" style="color: #38bdf8; text-decoration: none;">13kinder_</a></p>
+    </footer>
+
+    <script>
+        const box = document.getElementById('box');
+        const typeEl = document.getElementById('anim-type');
+        const durEl = document.getElementById('duration');
+        const timingEl = document.getElementById('timing');
+        const codeEl = document.getElementById('css-code');
+
+        const keyframesData = {
+            pulse: "@keyframes pulse {\n  0%, 100% { transform: scale(1); }\n  50% { transform: scale(1.15); }\n}",
+            bounce: "@keyframes bounce {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-40px); }\n}",
+            wobble: "@keyframes wobble {\n  0%, 100% { transform: translateX(0%); }\n  15% { transform: translateX(-25%) rotate(-5deg); }\n  30% { transform: translateX(20%) rotate(3deg); }\n  45% { transform: translateX(-15%) rotate(-3deg); }\n  60% { transform: translateX(10%) rotate(2deg); }\n  75% { transform: translateX(-5%) rotate(-1deg); }\n}",
+            flip: "@keyframes flip {\n  0% { transform: perspective(400px) rotateY(0); }\n  50% { transform: perspective(400px) translateZ(150px) rotateY(180deg); }\n  100% { transform: perspective(400px) rotateY(360deg); }\n}",
+            cyberGlitch: "@keyframes cyberGlitch {\n  0% { transform: translate(0); }\n  20% { transform: translate(-5px, 5px) skewX(-20deg); background: #ff003c; color: white; }\n  40% { transform: translate(5px, -5px) skewX(20deg); background: #00f0ff; color: black; }\n  60% { transform: translate(-5px, 5px) skewX(-20deg); }\n  80% { transform: translate(5px, -5px) skewX(20deg); background: #ffe600; }\n  100% { transform: translate(0); }\n}",
+            liquidMorph: "@keyframes liquidMorph {\n  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: scale(1); background: #38bdf8; }\n  50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; transform: scale(1.2) rotate(45deg); background: #6366f1; color: white; }\n}",
+            neonPulse: "@keyframes neonPulse {\n  0%, 100% { box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff; transform: scale(1); background: #0f172a; color: #0ff; border: 2px solid #0ff; }\n  50% { box-shadow: 0 0 20px #f0f, 0 0 40px #f0f, 0 0 80px #f0f; transform: scale(1.05); background: #0f172a; color: #f0f; border: 2px solid #f0f; }\n}",
+            tornado: "@keyframes tornado {\n  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }\n  50% { transform: rotateX(180deg) rotateY(360deg) rotateZ(180deg) scale(0.4); background: #f43f5e; color: white; }\n  100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }\n}",
+            hingeDrop: "@keyframes hingeDrop {\n  0% { transform-origin: top left; animation-timing-function: ease-in-out; }\n  20%, 60% { transform: rotate3d(0, 0, 1, 80deg); transform-origin: top left; animation-timing-function: ease-in-out; }\n  40%, 80% { transform: rotate3d(0, 0, 1, 60deg); transform-origin: top left; animation-timing-function: ease-in-out; opacity: 1; }\n  100% { transform: translate3d(0, 700px, 0); opacity: 0; }\n}"
+        };
+
+        function updateAnimation() {
+            let type = typeEl.value;
+            let dur = durEl.value + 's';
+            let timing = timingEl.value;
+            document.getElementById('dur-val').innerText = dur;
+            box.style.animation = 'none';
+            box.offsetHeight; 
+            box.style.animation = `${type} ${dur} ${timing} infinite`;
+            let classCode = `.element {\n  animation: ${type} ${dur} ${timing} infinite;\n}\n\n`;
+            codeEl.innerText = classCode + keyframesData[type];
+        }
+
+        function playAnimation() { updateAnimation(); }
+        typeEl.addEventListener('change', updateAnimation);
+        durEl.addEventListener('input', updateAnimation);
+        timingEl.addEventListener('change', updateAnimation);
+        updateAnimation(); 
+
+        function copyCode() {
+            navigator.clipboard.writeText(codeEl.innerText);
+            const btn = document.getElementById("copy-btn");
+            btn.innerText = "Copied! ✔";
+            btn.style.background = "#22c55e";
+            setTimeout(() => { btn.innerText = "Copy Code"; btn.style.background = "#38bdf8"; }, 2000);
+        }
+    </script>
+</body>
+</html>

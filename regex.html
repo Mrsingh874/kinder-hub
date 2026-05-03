@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================================
+         DUNIYA KA BEST SEO & GOOGLE RANKING FEATURE
+         Project: Regex Tester Pro (Kinder Hub)
+    ============================================================ -->
+    <title>Advanced Regex Tester & Replacer | Kinder Hub</title>
+    <meta name="title" content="Advanced Regex Tester & Replacer | Kinder Hub">
+    <meta name="description" content="Test, match, and replace Regular Expressions (Regex) in real-time. Includes built-in cheat sheets for emails, URLs, and phone numbers. Free tool by 13kinder_.">
+    <meta name="keywords" content="regex tester, regular expression tester, regex replacer, regex cheat sheet, test regex online, developer tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinderhub.netlify.app/regex.html">
+    <meta property="og:title" content="Advanced Regex Tester & Replacer | Kinder Hub">
+    <meta property="og:description" content="A powerful real-time tool to test, debug, and replace regular expressions effortlessly.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Regex Tester Pro | Kinder Hub">
+    <meta property="twitter:description" content="Real-time Regular Expression testing and replacing tool with built-in cheat sheets.">
+
+    <!-- Google Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Advanced Regex Tester and Replacer",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "13kinder_",
+        "url": "https://instagram.com/13kinder_"
+      },
+      "description": "A web-based developer tool for testing and replacing regular expressions (Regex) in real-time, featuring common pattern cheat sheets."
+    }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Naya Kinder Hub Branding */
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+
+        .container { display: flex; flex-direction: column; gap: 20px; margin: 40px 20px; max-width: 900px; width: 100%; }
+        
+        .box { background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #334155; position: relative;}
+        .box h3 { color: #cbd5e1; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;}
+
+        /* Naya Cheat Sheet Dropdown */
+        select { background: #0f172a; color: #38bdf8; border: 1px solid #334155; padding: 8px 12px; border-radius: 6px; outline: none; cursor: pointer; font-size: 0.9rem; font-weight: bold;}
+
+        .regex-inputs { display: flex; gap: 10px; align-items: center; background: #0f172a; padding: 10px 15px; border-radius: 8px; border: 1px solid #334155; margin-bottom: 15px;}
+        .slash { font-size: 1.5rem; color: #64748b; font-weight: bold; }
+        input[type="text"] { width: 100%; background: transparent; border: none; color: #38bdf8; font-size: 1.2rem; outline: none; font-family: monospace;}
+        .flags-input { width: 80px !important; color: #f43f5e !important;}
+
+        /* Naya Replace Input */
+        .replace-input-wrapper { display: flex; gap: 10px; align-items: center; background: #0f172a; padding: 10px 15px; border-radius: 8px; border: 1px dashed #64748b; }
+        .replace-input-wrapper i { color: #22c55e; }
+
+        textarea { width: 100%; height: 120px; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 8px; padding: 15px; font-size: 1.1rem; resize: none; outline: none; line-height: 1.5;}
+        
+        /* Results Grid */
+        .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } }
+
+        .result-box { width: 100%; min-height: 150px; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 8px; padding: 15px; font-size: 1.1rem; line-height: 1.5; white-space: pre-wrap; word-break: break-all;}
+        
+        .highlight { background-color: #fde047; color: #000; padding: 0 2px; border-radius: 3px; font-weight: bold; box-shadow: 0 0 5px rgba(253, 224, 71, 0.5);}
+        .replaced-text { color: #22c55e; font-weight: bold; text-decoration: underline; text-underline-offset: 4px;}
+        .error-msg { color: #f43f5e; font-weight: bold; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KINDER<span>HUB</span></h1>
+        <p>Advanced Regex Tester & Replacer</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <!-- Regex Input Box -->
+        <div class="box">
+            <h3>
+                <span>1. Regular Expression</span>
+                <!-- Cheat Sheet Dropdown -->
+                <select id="cheat-sheet" onchange="applyCheatSheet()">
+                    <option value="">⚡ Quick Snippets</option>
+                    <option value="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">Extract Emails</option>
+                    <option value="https?:\/\/[^\s]+">Extract URLs</option>
+                    <option value="#[a-zA-Z0-9_]+">Extract #Hashtags</option>
+                    <option value="\b\d{10}\b">10-Digit Phone Numbers</option>
+                    <option value="(?i)\b(badword|spam)\b">Censor Bad Words</option>
+                </select>
+            </h3>
+            
+            <div class="regex-inputs">
+                <span class="slash">/</span>
+                <input type="text" id="regex-pattern" value="#[a-zA-Z0-9_]+" placeholder="Enter pattern here...">
+                <span class="slash">/</span>
+                <input type="text" id="regex-flags" class="flags-input" value="ig" placeholder="flags">
+            </div>
+
+            <!-- Replace Feature -->
+            <div class="replace-input-wrapper">
+                <i class="fas fa-exchange-alt"></i>
+                <input type="text" id="replace-text" placeholder="Replace match with... (Optional)">
+            </div>
+            
+            <p id="error" class="error-msg">Invalid Regular Expression!</p>
+        </div>
+
+        <!-- Test String Input -->
+        <div class="box">
+            <h3>2. Test String</h3>
+            <textarea id="test-string" placeholder="Type text here to test your Regex...">Hey guys! Check out my new #coding video on YouTube. Drop an email at kinder@gmail.com or visit https://instagram.com/13kinder_ #webdev #html</textarea>
+        </div>
+
+        <!-- Results Section (Split in two) -->
+        <div class="results-grid">
+            <div class="box">
+                <h3 style="color: #fde047;"><i class="fas fa-search"></i> Match Highlights</h3>
+                <div id="match-result" class="result-box"></div>
+            </div>
+            
+            <div class="box">
+                <h3 style="color: #22c55e;"><i class="fas fa-magic"></i> Replace Output</h3>
+                <div id="replace-result" class="result-box"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const patternEl = document.getElementById('regex-pattern');
+        const flagsEl = document.getElementById('regex-flags');
+        const replaceEl = document.getElementById('replace-text');
+        const testStringEl = document.getElementById('test-string');
+        const matchResultEl = document.getElementById('match-result');
+        const replaceResultEl = document.getElementById('replace-result');
+        const errorEl = document.getElementById('error');
+        const cheatSheet = document.getElementById('cheat-sheet');
+
+        // Cheat Sheet Logic
+        function applyCheatSheet() {
+            if(cheatSheet.value !== "") {
+                patternEl.value = cheatSheet.value;
+                flagsEl.value = "ig"; // Default global & case-insensitive
+                
+                // Demo replace logic setup
+                if(cheatSheet.value === "(?i)\\b(badword|spam)\\b") {
+                    testStringEl.value = "This is a test comment with a badword and some spam.";
+                    replaceEl.value = "***";
+                }
+                
+                testRegex();
+                cheatSheet.value = ""; // reset dropdown
+            }
+        }
+
+        // Core Testing Logic
+        function testRegex() {
+            let pattern = patternEl.value;
+            let flags = flagsEl.value;
+            let text = testStringEl.value;
+            let replaceWith = replaceEl.value;
+
+            if(pattern === "") {
+                matchResultEl.innerHTML = text; 
+                replaceResultEl.innerHTML = text;
+                errorEl.style.display = "none";
+                return;
+            }
+
+            try {
+                const regex = new RegExp(pattern, flags);
+                
+                // 1. Highlight Matches
+                const highlightedText = text.replace(regex, match => `<span class="highlight">${match}</span>`);
+                matchResultEl.innerHTML = highlightedText;
+
+                // 2. Replace Logic
+                if(replaceWith !== "") {
+                    // Wrap replaced text in green class to show changes clearly
+                    const replacedText = text.replace(regex, `<span class="replaced-text">${replaceWith}</span>`);
+                    replaceResultEl.innerHTML = replacedText;
+                } else {
+                    replaceResultEl.innerHTML = text;
+                }
+                
+                errorEl.style.display = "none";
+            } catch (err) {
+                matchResultEl.innerHTML = text;
+                replaceResultEl.innerHTML = text;
+                errorEl.style.display = "block";
+            }
+        }
+
+        // Event Listeners for live updates
+        patternEl.addEventListener('input', testRegex);
+        flagsEl.addEventListener('input', testRegex);
+        replaceEl.addEventListener('input', testRegex);
+        testStringEl.addEventListener('input', testRegex);
+
+        testRegex(); // Initial run
+    </script>
+</body>
+</html>

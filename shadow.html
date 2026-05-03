@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================================
+         DUNIYA KA BEST SEO & GOOGLE RANKING FEATURE
+         Project: CSS Box Shadow Generator (Kinder Hub)
+    ============================================================ -->
+    <title>Advanced CSS Box Shadow & Neumorphism Generator | Kinder Hub</title>
+    <meta name="title" content="Advanced CSS Box Shadow & Neumorphism Generator | Kinder Hub">
+    <meta name="description" content="Generate ultra-smooth box shadows, Neumorphism (Soft UI) effects, and hover animations instantly. Copy the CSS code for free. By 13kinder_.">
+    <meta name="keywords" content="css shadow generator, neumorphism generator, soft ui css, box-shadow hover effect, advanced css tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinderhub.netlify.app/shadow.html">
+    <meta property="og:title" content="Advanced CSS Shadow & Soft UI Maker | Kinder Hub">
+    <meta property="og:description" content="Create premium Neumorphic designs and smooth hover shadows in one click.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Google Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Advanced CSS Box Shadow Generator",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+
+        .container { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 20px; max-width: 1100px; width: 100%; justify-content: center; }
+        
+        .controls { background: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 450px; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .controls-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+        
+        .setting { margin-bottom: 15px; }
+        .setting label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: #cbd5e1; font-size: 0.95rem;}
+        input[type="range"] { width: 100%; cursor: pointer; accent-color: #38bdf8; margin-bottom: 5px;}
+        
+        .color-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .color-item label { font-size: 0.85rem; color: #94a3b8; margin-bottom: 5px; display: block; }
+        input[type="color"] { width: 100%; height: 40px; border: none; border-radius: 6px; cursor: pointer; background: none; }
+
+        /* ADVANCED PRO TOGGLES */
+        .pro-features { background: linear-gradient(145deg, #1e293b, #0f172a); border: 1px solid #38bdf8; padding: 15px; border-radius: 8px; margin-top: 20px; }
+        .pro-features h4 { color: #38bdf8; margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+        .toggle-group { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}
+        .toggle-group label { color: #cbd5e1; font-weight: bold; cursor: pointer; font-size: 0.95rem; }
+        
+        /* Switch UI */
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #38bdf8; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .presets { display: flex; gap: 10px; margin-top: 20px; }
+        .preset-btn { flex: 1; background: #0f172a; color: #94a3b8; border: 1px solid #334155; padding: 8px; border-radius: 6px; cursor: pointer; transition: 0.3s; font-size: 0.85rem; font-weight: bold;}
+        .preset-btn:hover { border-color: #38bdf8; color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
+
+        /* Preview Section */
+        .preview-section { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        
+        .preview-area { width: 100%; height: 350px; background: #e0e5ec; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid #334155; transition: background 0.3s;}
+        
+        .shadow-box { width: 200px; height: 200px; background: #38bdf8; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 1.2rem; transition: all 0.3s ease; }
+        
+        /* Hover Effect Class that will be added via JS */
+        .shadow-box.hover-active:hover { transform: translateY(-10px); }
+
+        .code-output { width: 100%; background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+        .code-output pre { font-family: monospace; color: #a5b4fc; font-size: 0.9rem; line-height: 1.5; white-space: pre-wrap; word-break: break-all;}
+        .copy-btn { margin-top: 15px; width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem;}
+        .copy-btn:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KINDER<span>HUB</span></h1>
+        <p>Pro CSS Box Shadow & Neumorphism</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="controls-header">
+                <h3 style="color: #38bdf8;"><i class="fas fa-sliders-h"></i> Adjustments</h3>
+            </div>
+            
+            <div class="setting">
+                <label>Distance (X & Y) <span id="val-dist">10px</span></label>
+                <input type="range" id="distance" min="-50" max="50" value="10">
+            </div>
+            <div class="setting">
+                <label>Blur Radius <span id="val-blur">20px</span></label>
+                <input type="range" id="blur" min="0" max="100" value="20">
+            </div>
+            <div class="setting">
+                <label>Spread Radius <span id="val-spread">0px</span></label>
+                <input type="range" id="spread" min="-50" max="50" value="0">
+            </div>
+            <div class="setting">
+                <label>Shadow Opacity <span id="val-opacity">0.3</span></label>
+                <input type="range" id="opacity" min="0" max="1" step="0.05" value="0.3">
+            </div>
+
+            <!-- PRO FEATURES BOX -->
+            <div class="pro-features">
+                <h4><i class="fas fa-bolt"></i> Advanced Pro Engines</h4>
+                
+                <div class="toggle-group">
+                    <label for="neumorphism">Enable Neumorphism (Soft UI)</label>
+                    <label class="switch">
+                        <input type="checkbox" id="neumorphism">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="toggle-group">
+                    <label for="hover-anim">Generate Hover Animation</label>
+                    <label class="switch">
+                        <input type="checkbox" id="hover-anim">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="toggle-group">
+                    <label for="inset">Inset (Inner Shadow)</label>
+                    <label class="switch">
+                        <input type="checkbox" id="inset">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="color-group">
+                <div class="color-item">
+                    <label>Shadow Color</label>
+                    <input type="color" id="shadow-color" value="#000000">
+                </div>
+                <div class="color-item">
+                    <label>Box Color</label>
+                    <input type="color" id="box-color" value="#38bdf8">
+                </div>
+                <div class="color-item" style="grid-column: span 2;">
+                    <label>Background Color</label>
+                    <input type="color" id="bg-color" value="#e0e5ec">
+                </div>
+            </div>
+
+            <div class="presets">
+                <button class="preset-btn" onclick="applyPreset(15, 30, 0, '#000000', 0.15, false)">Floating</button>
+                <button class="preset-btn" onclick="applyPreset(5, 10, -3, '#000000', 0.5, true)">Pressed</button>
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-section">
+            <div class="preview-area" id="preview-bg">
+                <div class="shadow-box" id="box">Kinder</div>
+            </div>
+            
+            <div class="code-output">
+                <pre id="css-code"></pre>
+                <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy Full CSS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const distance = document.getElementById('distance');
+        const blurRadius = document.getElementById('blur');
+        const spreadRadius = document.getElementById('spread');
+        const opacity = document.getElementById('opacity');
+        const shadowColor = document.getElementById('shadow-color');
+        const boxColor = document.getElementById('box-color');
+        const bgColor = document.getElementById('bg-color');
+        
+        const inset = document.getElementById('inset');
+        const neumorphism = document.getElementById('neumorphism');
+        const hoverAnim = document.getElementById('hover-anim');
+        
+        const box = document.getElementById('box');
+        const previewBg = document.getElementById('preview-bg');
+        const codeOutput = document.getElementById('css-code');
+
+        function hexToRgb(hex) {
+            let r = parseInt(hex.slice(1, 3), 16);
+            let g = parseInt(hex.slice(3, 5), 16);
+            let b = parseInt(hex.slice(5, 7), 16);
+            return `${r}, ${g}, ${b}`;
+        }
+
+        function updateShadow() {
+            let d = distance.value;
+            let b = blurRadius.value;
+            let s = spreadRadius.value;
+            let o = opacity.value;
+            let isInset = inset.checked ? "inset " : "";
+            
+            document.getElementById('val-dist').innerText = d + 'px';
+            document.getElementById('val-blur').innerText = b + 'px';
+            document.getElementById('val-spread').innerText = s + 'px';
+            document.getElementById('val-opacity').innerText = o;
+
+            let finalShadow = "";
+            let codeString = "";
+
+            // LOGIC 1: NEUMORPHISM (Soft UI)
+            if(neumorphism.checked) {
+                // Force box color to match background for the true soft UI effect
+                boxColor.value = bgColor.value;
+                box.style.color = "#334155"; // Make text visible on light bg
+                
+                let lightShadow = `${isInset}${-d}px ${-d}px ${b}px rgba(255, 255, 255, 0.7)`;
+                let darkShadow = `${isInset}${d}px ${d}px ${b}px rgba(0, 0, 0, ${o})`;
+                
+                finalShadow = `${lightShadow}, ${darkShadow}`;
+                
+                codeString = `.box {\n  background: ${bgColor.value};\n  border-radius: 16px;\n  box-shadow: ${finalShadow};\n}`;
+            } 
+            // LOGIC 2: NORMAL SHADOW
+            else {
+                box.style.color = "#fff";
+                let rgbColor = hexToRgb(shadowColor.value);
+                finalShadow = `${isInset}${d}px ${d}px ${b}px ${s}px rgba(${rgbColor}, ${o})`;
+                
+                codeString = `.box {\n  background: ${boxColor.value};\n  border-radius: 16px;\n  box-shadow: ${finalShadow};\n}`;
+            }
+
+            // LOGIC 3: HOVER ANIMATION
+            if(hoverAnim.checked) {
+                box.classList.add('hover-active');
+                
+                // Calculate an exaggerated shadow for the hover state
+                let hoverD = parseInt(d) + 5;
+                let hoverB = parseInt(b) + 10;
+                let hoverShadow = "";
+                
+                if(neumorphism.checked) {
+                    hoverShadow = `${isInset}${-hoverD}px ${-hoverD}px ${hoverB}px rgba(255, 255, 255, 0.8), ${isInset}${hoverD}px ${hoverD}px ${hoverB}px rgba(0, 0, 0, ${parseFloat(o) + 0.1})`;
+                } else {
+                    let rgbColor = hexToRgb(shadowColor.value);
+                    hoverShadow = `${isInset}${hoverD}px ${hoverD}px ${hoverB}px ${s}px rgba(${rgbColor}, ${parseFloat(o) + 0.1})`;
+                }
+
+                codeString = `.box {\n  background: ${boxColor.value};\n  border-radius: 16px;\n  box-shadow: ${finalShadow};\n  transition: all 0.3s ease;\n}\n\n.box:hover {\n  transform: translateY(-10px);\n  box-shadow: ${hoverShadow};\n}`;
+            } else {
+                box.classList.remove('hover-active');
+            }
+
+            // Apply to Preview
+            box.style.backgroundColor = boxColor.value;
+            previewBg.style.backgroundColor = bgColor.value;
+            box.style.boxShadow = finalShadow;
+            
+            // Apply to Code Box
+            codeOutput.innerText = codeString;
+        }
+
+        function applyPreset(d, b, s, c, o, isInset) {
+            distance.value = d;
+            blurRadius.value = b;
+            spreadRadius.value = s;
+            shadowColor.value = c;
+            opacity.value = o;
+            inset.checked = isInset;
+            neumorphism.checked = false; // Turn off Neumorphism for normal presets
+            updateShadow();
+        }
+
+        // Attach Event Listeners
+        const allInputs = [distance, blurRadius, spreadRadius, opacity, shadowColor, boxColor, bgColor, inset, neumorphism, hoverAnim];
+        allInputs.forEach(input => input.addEventListener('input', updateShadow));
+
+        updateShadow();
+
+        function copyCode() {
+            navigator.clipboard.writeText(codeOutput.innerText);
+            const btn = document.getElementById("copy-btn");
+            btn.innerText = "Code Copied! ✔";
+            btn.style.background = "#22c55e";
+            setTimeout(() => { 
+                btn.innerText = "Copy Full CSS"; 
+                btn.style.background = "#38bdf8"; 
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

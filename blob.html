@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================================
+         DUNIYA KA BEST SEO & GOOGLE RANKING FEATURE
+         Project: Blob Shape Generator (Kinder Hub)
+    ============================================================ -->
+    <title>Organic CSS Blob Shape Generator | Kinder Hub</title>
+    <meta name="title" content="Organic CSS Blob Shape Generator | Kinder Hub">
+    <meta name="description" content="Create unique, organic CSS blob shapes instantly. Customize gradients, adjust border-radius, and copy the CSS code. Free web design tool by 13kinder_.">
+    <meta name="keywords" content="blob generator, css blob shape, organic shape generator, css border-radius generator, web design tools, frontend tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinderhub.netlify.app/blob.html">
+    <meta property="og:title" content="CSS Blob Shape Generator | Kinder Hub">
+    <meta property="og:description" content="Generate beautiful, organic CSS blob shapes for your website backgrounds instantly.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Organic Blob Generator | Kinder Hub">
+    <meta property="twitter:description" content="Create and copy beautiful CSS blob shapes effortlessly.">
+
+    <!-- Google Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Organic Blob Shape Generator",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "13kinder_",
+        "url": "https://instagram.com/13kinder_"
+      },
+      "description": "A developer tool to visually generate complex organic blob shapes using CSS border-radius and linear gradients."
+    }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Naya Kinder Hub Branding */
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+
+        .container { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 20px; max-width: 1000px; width: 100%; justify-content: center; }
+        
+        /* Controls */
+        .controls { background: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .controls-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;}
+        .random-btn { background: #0f172a; color: #38bdf8; border: 1px solid #38bdf8; padding: 8px 12px; border-radius: 6px; cursor: pointer; transition: 0.3s; font-size: 0.85rem; font-weight: bold;}
+        .random-btn:hover { background: #38bdf8; color: #0f172a; }
+
+        .setting { margin-bottom: 20px; }
+        .setting label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: #cbd5e1; }
+        input[type="range"] { width: 100%; cursor: pointer; accent-color: #38bdf8; }
+        
+        .color-group { display: flex; gap: 15px; margin-top: 20px; }
+        input[type="color"] { width: 100%; height: 40px; border: none; border-radius: 6px; cursor: pointer; background: none; }
+
+        /* Preview */
+        .preview-section { width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        
+        /* Checkered background to make blobs pop */
+        .blob-container { width: 100%; height: 350px; display: flex; align-items: center; justify-content: center; background: repeating-conic-gradient(#1e293b 0% 25%, #0f172a 0% 50%) 50% / 20px 20px; border-radius: 12px; border: 1px solid #334155; overflow: hidden;}
+        .blob-box { width: 250px; height: 250px; background: linear-gradient(135deg, #38bdf8, #6366f1); border-radius: 50%; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        .code-output { width: 100%; background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+        .code-output p { font-family: monospace; color: #a5b4fc; font-size: 0.95rem; line-height: 1.5; word-break: break-all; }
+        .copy-btn { margin-top: 15px; width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem;}
+        .copy-btn:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KINDER<span>HUB</span></h1>
+        <p>Organic Blob Shape Generator</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <!-- Sliders -->
+        <div class="controls">
+            <div class="controls-header">
+                <h3 style="color: #38bdf8;"><i class="fas fa-shapes"></i> Shape Controls</h3>
+                <!-- NEW PRO FEATURE: Randomize Button -->
+                <button class="random-btn" onclick="randomizeBlob()"><i class="fas fa-dice"></i> Randomize</button>
+            </div>
+            
+            <div class="setting">
+                <label>Top Left <span id="val1">50%</span></label>
+                <input type="range" id="slider1" min="10" max="100" value="50">
+            </div>
+            <div class="setting">
+                <label>Top Right <span id="val2">50%</span></label>
+                <input type="range" id="slider2" min="10" max="100" value="50">
+            </div>
+            <div class="setting">
+                <label>Bottom Left <span id="val3">50%</span></label>
+                <input type="range" id="slider3" min="10" max="100" value="50">
+            </div>
+            <div class="setting">
+                <label>Bottom Right <span id="val4">50%</span></label>
+                <input type="range" id="slider4" min="10" max="100" value="50">
+            </div>
+            
+            <div class="color-group">
+                <input type="color" id="color1" value="#38bdf8">
+                <input type="color" id="color2" value="#6366f1">
+            </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-section">
+            <div class="blob-container">
+                <div class="blob-box" id="blob"></div>
+            </div>
+            
+            <div class="code-output">
+                <p id="css-code">border-radius: 50% 50% 50% 50%;<br>background: linear-gradient(135deg, #38bdf8, #6366f1);</p>
+                <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy CSS Code</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const s1 = document.getElementById('slider1');
+        const s2 = document.getElementById('slider2');
+        const s3 = document.getElementById('slider3');
+        const s4 = document.getElementById('slider4');
+        const c1 = document.getElementById('color1');
+        const c2 = document.getElementById('color2');
+        const blob = document.getElementById('blob');
+        const code = document.getElementById('css-code');
+
+        function updateBlob() {
+            let radius = `${s1.value}% ${100 - s1.value}% ${s3.value}% ${100 - s3.value}% / ${s4.value}% ${s2.value}% ${100 - s2.value}% ${100 - s4.value}%`;
+            let background = `linear-gradient(135deg, ${c1.value}, ${c2.value})`;
+
+            blob.style.borderRadius = radius;
+            blob.style.background = background;
+
+            // Update Labels
+            document.getElementById('val1').innerText = s1.value + '%';
+            document.getElementById('val2').innerText = s2.value + '%';
+            document.getElementById('val3').innerText = s3.value + '%';
+            document.getElementById('val4').innerText = s4.value + '%';
+
+            // Update Code
+            code.innerHTML = `border-radius: ${radius};<br>background: ${background};`;
+        }
+
+        // NEW PRO FEATURE: Randomizer Logic
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomHex() {
+            return '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+        }
+
+        function randomizeBlob() {
+            s1.value = getRandomInt(20, 80);
+            s2.value = getRandomInt(20, 80);
+            s3.value = getRandomInt(20, 80);
+            s4.value = getRandomInt(20, 80);
+            
+            // Generate random matching/cool colors occasionally
+            c1.value = getRandomHex();
+            c2.value = getRandomHex();
+
+            updateBlob();
+        }
+
+        [s1, s2, s3, s4, c1, c2].forEach(el => el.addEventListener('input', updateBlob));
+        updateBlob(); // Initialize
+
+        function copyCode() {
+            // Text to copy (removing <br> tags)
+            let rawCode = code.innerHTML.replace(/<br>/g, '\n');
+            navigator.clipboard.writeText(rawCode);
+            
+            const btn = document.getElementById("copy-btn");
+            btn.innerText = "Copied! ✔";
+            btn.style.background = "#22c55e";
+            setTimeout(() => { btn.innerText = "Copy CSS Code"; btn.style.background = "#38bdf8"; }, 2000);
+        }
+    </script>
+</body>
+</html>

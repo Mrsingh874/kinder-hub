@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================================
+         DUNIYA KA BEST SEO & GOOGLE RANKING FEATURE
+         Project: SEO Meta Tags Generator (Kinder Hub)
+    ============================================================ -->
+    <title>Pro SEO Meta Tags Generator | Kinder Hub</title>
+    <meta name="title" content="Pro SEO Meta Tags Generator | Kinder Hub">
+    <meta name="description" content="Generate perfect SEO meta tags, Open Graph, and Twitter cards for your website instantly. Boost your Google ranking with Kinder Hub's free tool.">
+    <meta name="keywords" content="seo meta tag generator, open graph generator, twitter card generator, html meta tags, seo tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinderhub.netlify.app/seo.html">
+    <meta property="og:title" content="Pro SEO Meta Tags Generator | Kinder Hub">
+    <meta property="og:description" content="Generate perfect SEO, Open Graph, and Twitter meta tags for your website in seconds.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="SEO Meta Generator | Kinder Hub">
+    <meta property="twitter:description" content="Create perfectly formatted meta tags for Google, Facebook, and Twitter.">
+
+    <!-- Google Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SEO Meta Tags Generator",
+      "operatingSystem": "Web",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "13kinder_",
+        "url": "https://instagram.com/13kinder_"
+      },
+      "description": "A developer tool to automatically generate optimized HTML meta tags for SEO, Open Graph, and Twitter Cards."
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Naya Kinder Hub Branding */
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+        
+        .container { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 20px; max-width: 1000px; width: 100%; justify-content: center; }
+        .form-section { background: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; color: #cbd5e1; font-weight: bold; font-size: 0.95rem; }
+        .input-group input, .input-group textarea { width: 100%; padding: 10px; background: #0f172a; color: #fff; border: 1px solid #334155; border-radius: 6px; outline: none; font-size: 0.95rem;}
+        .input-group input:focus, .input-group textarea:focus { border-color: #38bdf8; }
+        
+        .output-section { width: 100%; max-width: 500px; }
+        .code-box { background: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #334155; position: relative; height: 100%; display: flex; flex-direction: column;}
+        .code-box pre { color: #38bdf8; white-space: pre-wrap; font-size: 0.9rem; word-break: break-all; flex-grow: 1; overflow-y: auto; max-height: 450px;}
+        
+        .copy-btn { width: 100%; margin-top: 15px; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem;}
+        .copy-btn:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KINDER<span>HUB</span></h1>
+        <p>Pro SEO Meta Tags Generator</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <div class="input-group">
+                <label>Website Title</label>
+                <input type="text" id="site-title" value="My Awesome Website">
+            </div>
+            <div class="input-group">
+                <label>Description</label>
+                <textarea id="site-desc" rows="3">This is the best website to learn coding and download developer tools.</textarea>
+            </div>
+            <div class="input-group">
+                <label>Keywords (comma separated)</label>
+                <input type="text" id="site-keys" value="html, css, js, kinder hub">
+            </div>
+            <div class="input-group">
+                <label>Author Name</label>
+                <input type="text" id="site-author" value="13kinder_">
+            </div>
+            <!-- NEW PRO FEATURE: Image URL for Social Cards -->
+            <div class="input-group">
+                <label>Social Image URL (Open Graph)</label>
+                <input type="text" id="site-image" value="https://mywebsite.com/logo.png" placeholder="https://...">
+            </div>
+        </div>
+
+        <!-- Output Section -->
+        <div class="output-section">
+            <div class="code-box">
+                <pre id="meta-output"></pre>
+                <button class="copy-btn" id="copy-btn" onclick="copyCode()">Copy Meta Tags</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputs = document.querySelectorAll('input, textarea');
+        const output = document.getElementById('meta-output');
+
+        function generateTags() {
+            const title = document.getElementById('site-title').value;
+            const desc = document.getElementById('site-desc').value;
+            const keys = document.getElementById('site-keys').value;
+            const author = document.getElementById('site-author').value;
+            const image = document.getElementById('site-image').value;
+
+            // Updated output with PRO Open Graph and Twitter Cards
+            const tags = `<!-- Primary Meta Tags -->
+<title>${title}</title>
+<meta name="title" content="${title}">
+<meta name="description" content="${desc}">
+<meta name="keywords" content="${keys}">
+<meta name="author" content="${author}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:image" content="${image}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="${title}">
+<meta property="twitter:description" content="${desc}">
+<meta property="twitter:image" content="${image}">`;
+            
+            output.textContent = tags;
+        }
+
+        inputs.forEach(input => input.addEventListener('input', generateTags));
+        generateTags(); // Run on load
+
+        function copyCode() {
+            navigator.clipboard.writeText(output.textContent);
+            const btn = document.getElementById("copy-btn");
+            btn.innerText = "Copied! ✔";
+            btn.style.background = "#22c55e"; // Green success color
+            btn.style.color = "#fff";
+            setTimeout(() => { 
+                btn.innerText = "Copy Meta Tags"; 
+                btn.style.background = "#38bdf8"; // Back to blue
+                btn.style.color = "#0f172a";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

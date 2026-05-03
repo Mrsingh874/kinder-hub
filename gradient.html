@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =======================================================
+         Project: Gradient Maker (Kinder Hub)
+    ============================================================ -->
+    <title>CSS Gradient Generator & Background Maker | Kinder Hub</title>
+    <meta name="title" content="CSS Gradient Generator & Background Maker | Kinder Hub">
+    <meta name="description" content="Blend colors seamlessly and generate beautiful CSS linear gradient backgrounds instantly. Copy the code with one click. Free web design tool by 13kinder_.">
+    <meta name="keywords" content="CSS gradient generator, linear gradient maker, background color blend, CSS tools, web design tools, Kinder Hub, 13kinder_">
+    <meta name="author" content="13kinder_">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <!-- NAYA URL YAHAN UPDATE KIYA GAYA HAI 👇 -->
+    <meta property="og:url" content="https://kinderhub.netlify.app/gradient.html">
+    <meta property="og:title" content="CSS Gradient Generator | Kinder Hub">
+    <meta property="og:description" content="Generate beautiful CSS linear gradient backgrounds instantly.">
+    <meta property="og:image" content="https://kinderhub.netlify.app/logo.png">
+
+    <!-- Twitter Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="CSS Gradient Maker | Kinder Hub">
+    <meta property="twitter:description" content="Blend colors seamlessly and generate perfect CSS linear gradients.">
+
+    <!-- Google Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "CSS Gradient Generator",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "13kinder_",
+        "url": "https://instagram.com/13kinder_"
+      },
+      "description": "A free web tool to visually blend colors and generate CSS code for linear gradient backgrounds."
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        
+        header { text-align: center; padding: 30px 20px; width: 100%; background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* Logo aur Branding Colors ko Kinder Hub ke hisaab se set kiya */
+        header h1 { color: #f8fafc; font-size: 2.5rem; letter-spacing: 1px; }
+        header h1 span { color: #38bdf8; }
+        header p { color: #94a3b8; margin-top: 5px; }
+        header a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block; transition: 0.3s; }
+        header a:hover { color: #38bdf8; }
+
+        .container { display: flex; flex-wrap: wrap; gap: 40px; margin: 40px 20px; max-width: 900px; width: 100%; justify-content: center; }
+        .controls { background: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 350px; }
+        .color-inputs { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        input[type="color"] { width: 45%; height: 50px; border: none; border-radius: 8px; cursor: pointer; background: none; }
+        .preview-box { width: 100%; max-width: 450px; height: 250px; border-radius: 12px; background: linear-gradient(to right, #ff7eb3, #ff758c); margin-bottom: 20px; box-shadow: 0 10px 15px rgba(0,0,0,0.2); }
+        .code-box { background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; text-align: center; width: 100%; max-width: 450px;}
+        .code-box p { font-family: monospace; color: #a5b4fc; margin-bottom: 15px; font-size: 0.95rem; }
+        button { padding: 12px 20px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; font-size: 1rem; }
+        button:hover { background: #0ea5e9; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Naya Kinder Hub Branding -->
+        <h1>KINDER<span>HUB</span></h1>
+        <p>CSS Gradient Background Maker</p>
+        <a href="index.html">← Back to Tools Hub</a>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <h3 style="color: #cbd5e1;">Choose Colors</h3><br>
+            <div class="color-inputs">
+                <input type="color" id="color1" value="#ff7eb3">
+                <input type="color" id="color2" value="#ff758c">
+            </div>
+            <p style="color: #94a3b8; font-size: 0.9rem;">Select two colors to blend them seamlessly.</p>
+        </div>
+
+        <div>
+            <div class="preview-box" id="preview"></div>
+            <div class="code-box">
+                <p id="css-code">background: linear-gradient(to right, #ff7eb3, #ff758c);</p>
+                <button onclick="copyCode()" id="copy-btn">Copy CSS</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const color1 = document.getElementById('color1');
+        const color2 = document.getElementById('color2');
+        const preview = document.getElementById('preview');
+        const cssCode = document.getElementById('css-code');
+
+        function setGradient() {
+            const gradient = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
+            preview.style.background = gradient;
+            cssCode.textContent = `background: ${gradient};`;
+        }
+
+        color1.addEventListener('input', setGradient);
+        color2.addEventListener('input', setGradient);
+
+        function copyCode() {
+            navigator.clipboard.writeText(cssCode.textContent);
+            const btn = document.getElementById('copy-btn');
+            btn.textContent = "Copied! ✔";
+            btn.style.background = "#22c55e"; // Green for success
+            setTimeout(() => { 
+                btn.textContent = "Copy CSS"; 
+                btn.style.background = "#38bdf8"; // Back to blue
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
