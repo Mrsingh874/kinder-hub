@@ -6,7 +6,7 @@ exports.handler = async function(event, context) {
 
     // Netlify ki tijori se API key nikalna
     const API_KEY = process.env.GEMINI_API_KEY;
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${API_KEY}`;
     
     try {
         const body = JSON.parse(event.body);
