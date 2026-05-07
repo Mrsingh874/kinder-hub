@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- =======================================================
-         Project: AI Bug Finder Pro (Kinder Hub)
-    ============================================================ -->
     <title>AI Bug Finder Ultra Pro | Smart Code Debugger by Kinder Hub</title>
     <meta name="title" content="AI Bug Finder Ultra Pro | Smart Code Debugger by Kinder Hub">
     <meta name="description"
@@ -26,38 +21,31 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', sans-serif;
         }
-
         body {
             background-color: #080c14;
             color: #f8fafc;
             min-height: 100vh;
         }
-
         header {
             text-align: center;
             padding: 40px 20px;
             background: #111827;
             border-bottom: 2px solid #38bdf8;
         }
-
         header h1 {
             color: #f8fafc;
             font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         header h1 span {
             color: #38bdf8;
         }
-
         .container {
             max-width: 1100px;
             margin: 40px auto;
             padding: 0 20px;
         }
-
-        /* TERMINAL INTERFACE */
         .ai-terminal {
             background: #000;
             border: 1px solid #334155;
@@ -66,7 +54,6 @@
             overflow: hidden;
             box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
         }
-
         .terminal-header {
             background: #1e293b;
             padding: 12px 20px;
@@ -74,7 +61,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         textarea {
             width: 100%;
             height: 280px;
@@ -87,15 +73,12 @@
             outline: none;
             resize: none;
         }
-
-        /* BUTTONS GROUP */
         .btn-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1px;
             background: #334155;
         }
-
         .btn {
             padding: 20px;
             border: none;
@@ -108,20 +91,16 @@
             justify-content: center;
             gap: 10px;
         }
-
         .btn-free {
             background: #1f2937;
             color: #94a3b8;
         }
-
         .btn-pro {
             background: linear-gradient(90deg, #f59e0b, #ef4444);
             color: #fff;
             position: relative;
             overflow: hidden;
         }
-
-        /* PAID FEATURE OVERLAY*/
         .pro-locked-overlay {
             display: none;
             position: absolute;
@@ -209,7 +188,6 @@
             border: 1px solid #1e293b;
             overflow-x: auto;
             white-space: pre-wrap;
-            /* Code format sahi dikhane ke liye */
         }
 
         .pro-unlocked-badge {
@@ -366,7 +344,7 @@
             }, 1000);
         }
 
-        // ASLI AI KA JAADU YAHAN HAI
+        
         async function runProAudit() {
             const codeInput = document.getElementById('raw-code').value;
             const reportBox = document.getElementById('free-report');
@@ -383,10 +361,7 @@
                 </div>`;
             outputBox.innerText = "AI is finding and fixing bugs... Please wait a few seconds.";
             
-
-           // Yahan se API Key delete kar di gayi hai (Now 100% Secure)
             
-            // Ab hum direct Netlify Function (Middleman) ko bulayenge
             const url = `/.netlify/functions/gemini`;
             
             try {
@@ -416,7 +391,7 @@
                         <p><b>🔍 SEO Master:</b> OPTIMIZED</p>
                     </div>`;
 
-                // Code screen par print karna
+                
                 outputBox.innerText = aiReply;
                 status.innerText = "PRO_ENGINE_ACTIVE";
 
@@ -428,5 +403,4 @@
         }
     </script>
 </body>
-
 </html>
